@@ -1,9 +1,12 @@
 package de.apnmt.common.event.value;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ServiceEventDTO {
+public class ServiceEventDTO implements Serializable {
 
+    private static final long serialVersionUID = 3959448700708937863L;
+    
     private Long id;
 
     private String name;
