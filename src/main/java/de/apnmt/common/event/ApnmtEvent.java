@@ -53,22 +53,22 @@ public class ApnmtEvent<T> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || this.getClass() != o.getClass()) return false;
         ApnmtEvent<?> that = (ApnmtEvent<?>) o;
-        return getType() == that.getType() && getTimestamp().equals(that.getTimestamp()) && getValue().equals(that.getValue());
+        return this.getType() == that.getType() && this.getTimestamp().equals(that.getTimestamp()) && this.getValue().equals(that.getValue());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getType(), getTimestamp(), getValue());
+        return Objects.hash(this.getType(), this.getTimestamp(), this.getValue());
     }
 
     @Override
     public String toString() {
         return "ApnmtEvent{" +
-                "type=" + this.type +
-                ", timestamp=" + this.timestamp +
-                ", value=" + this.value +
-                '}';
+            "type=" + this.type +
+            ", timestamp=" + this.timestamp +
+            ", value=" + this.value +
+            '}';
     }
 }
