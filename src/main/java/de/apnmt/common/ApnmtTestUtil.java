@@ -1,11 +1,16 @@
 package de.apnmt.common;
 
-import de.apnmt.common.event.ApnmtEvent;
-import de.apnmt.common.event.ApnmtEventType;
-import de.apnmt.common.event.value.*;
-
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+
+import de.apnmt.common.event.ApnmtEvent;
+import de.apnmt.common.event.ApnmtEventType;
+import de.apnmt.common.event.value.AppointmentEventDTO;
+import de.apnmt.common.event.value.ClosingTimeEventDTO;
+import de.apnmt.common.event.value.OpeningHourEventDTO;
+import de.apnmt.common.event.value.OrganizationActivationEventDTO;
+import de.apnmt.common.event.value.ServiceEventDTO;
+import de.apnmt.common.event.value.WorkingHourEventDTO;
 
 public class ApnmtTestUtil {
 
@@ -83,6 +88,19 @@ public class ApnmtTestUtil {
 
     public static ApnmtEvent<OpeningHourEventDTO> createOpeningHourEvent(ApnmtEventType type) {
         return new ApnmtEvent<OpeningHourEventDTO>().timestamp(LocalDateTime.now()).type(type).value(createOpeningHourEventDTO());
+    }
+
+    public static OrganizationActivationEventDTO createOrganizationActivationEventDTO() {
+        OrganizationActivationEventDTO organizationActivationEventDTO = new OrganizationActivationEventDTO();
+        organizationActivationEventDTO.setOrganizationId(1L);
+        organizationActivationEventDTO.setActive(true);
+        return organizationActivationEventDTO;
+    }
+
+    public static ApnmtEvent<OrganizationActivationEventDTO> createOrganizationActivationEvent() {
+        return new ApnmtEvent<OrganizationActivationEventDTO>().timestamp(LocalDateTime.now())
+                .type(ApnmtEventType.organizationActivationChanged)
+                .value(createOrganizationActivationEventDTO());
     }
 
 }

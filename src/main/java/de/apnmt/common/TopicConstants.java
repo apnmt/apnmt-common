@@ -12,4 +12,6 @@ public class TopicConstants {
 
     public static final String WORKING_HOUR_CHANGED_TOPIC = "working.hour.changed";
 
+    public static final String ORGANIZATION_ACTIVATION_CHANGED_TOPIC = "organization.activation.changed";
+
 }
