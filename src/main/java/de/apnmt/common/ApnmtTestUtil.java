@@ -90,17 +90,21 @@ public class ApnmtTestUtil {
         return new ApnmtEvent<OpeningHourEventDTO>().timestamp(LocalDateTime.now()).type(type).value(createOpeningHourEventDTO());
     }
 
-    public static OrganizationActivationEventDTO createOrganizationActivationEventDTO() {
+    public static OrganizationActivationEventDTO createOrganizationActivationEventDTO(Long id, boolean active) {
         OrganizationActivationEventDTO organizationActivationEventDTO = new OrganizationActivationEventDTO();
-        organizationActivationEventDTO.setOrganizationId(1L);
-        organizationActivationEventDTO.setActive(true);
+        organizationActivationEventDTO.setOrganizationId(id);
+        organizationActivationEventDTO.setActive(active);
         return organizationActivationEventDTO;
     }
 
     public static ApnmtEvent<OrganizationActivationEventDTO> createOrganizationActivationEvent() {
+        return createOrganizationActivationEvent(1L, true);
+    }
+
+    public static ApnmtEvent<OrganizationActivationEventDTO> createOrganizationActivationEvent(Long id, boolean active) {
         return new ApnmtEvent<OrganizationActivationEventDTO>().timestamp(LocalDateTime.now())
                 .type(ApnmtEventType.organizationActivationChanged)
-                .value(createOrganizationActivationEventDTO());
+                .value(createOrganizationActivationEventDTO(id, active));
     }
 
 }
