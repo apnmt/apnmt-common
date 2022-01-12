@@ -1,9 +1,12 @@
 package de.apnmt.common.event;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class ApnmtEvent<T> {
+public class ApnmtEvent<T> implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private ApnmtEventType type;
 
@@ -65,10 +68,6 @@ public class ApnmtEvent<T> {
 
     @Override
     public String toString() {
-        return "ApnmtEvent{" +
-            "type=" + this.type +
-            ", timestamp=" + this.timestamp +
-            ", value=" + this.value +
-            '}';
+        return "ApnmtEvent{" + "type=" + this.type + ", timestamp=" + this.timestamp + ", value=" + this.value + '}';
     }
 }
