@@ -12,6 +12,8 @@ public class ApnmtEvent<T> implements Serializable {
 
     private LocalDateTime timestamp;
 
+    private String traceId;
+
     private T value;
 
     public ApnmtEventType getType() {
@@ -38,6 +40,14 @@ public class ApnmtEvent<T> implements Serializable {
     public ApnmtEvent<T> timestamp(LocalDateTime timestamp) {
         this.setTimestamp(timestamp);
         return this;
+    }
+
+    public String getTraceId() {
+        return traceId;
+    }
+
+    public void setTraceId(String traceId) {
+        this.traceId = traceId;
     }
 
     public T getValue() {
